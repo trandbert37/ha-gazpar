@@ -4,7 +4,7 @@
   "documentation": "https://www.home-assistant.io/components/gazpar",
   "requirements": [
     "pygazpar==0.1.14",
-    "geckodriver==0.28.0"
+    "geckodriver-autoinstaller"
   ],
   "dependencies": [],
   "codeowners": [
