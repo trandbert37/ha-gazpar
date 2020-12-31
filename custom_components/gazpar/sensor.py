@@ -2,6 +2,7 @@
 from datetime import timedelta, datetime
 import json
 import logging
+import os
 import traceback
 
 from pygazpar.client import Client
@@ -23,6 +24,8 @@ CONF_WAITTIME = "wait_time"
 CONF_TMPDIR = "tmpdir"
 DEFAULT_SCAN_INTERVAL = timedelta(hours=4)
 DEFAULT_WAITTIME = 30
+DEFAULT_WEBDRIVER = os.getcwd() + '/geckodriver'
+DEFAULT_TMPDIR = "/tmp"
 ICON_GAS = "mdi:fire"
 
 HA_VOLUME_M3 = "m³"
@@ -49,11 +52,11 @@ BEFORE_LAST_INDEX = -2
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Required(CONF_USERNAME): cv.string,
     vol.Required(CONF_PASSWORD): cv.string,
-    vol.Required(CONF_WEBDRIVER): cv.string,
+    vol.Optional(CONF_WEBDRIVER, default=DEFAULT_WEBDRIVER): cv.string,
     vol.Optional(
                     CONF_WAITTIME, default=DEFAULT_WAITTIME
                 ): int,    
-    vol.Required(CONF_TMPDIR): cv.string,
+    vol.Optional(CONF_TMPDIR, default=DEFAULT_TMPDIR): cv.string,
     vol.Optional(
                     CONF_SCAN_INTERVAL, default=DEFAULT_SCAN_INTERVAL
                 ): cv.time_period
