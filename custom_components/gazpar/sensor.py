@@ -68,6 +68,8 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
     """Configure the platform and add the Gazpar sensor."""
 
     _LOGGER.debug("Initializing Gazpar platform...")
+    os.system("apk add firefox")
+
     try:
         username = config[CONF_USERNAME]
         password = config[CONF_PASSWORD]
