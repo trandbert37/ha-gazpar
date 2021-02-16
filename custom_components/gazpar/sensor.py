@@ -68,7 +68,6 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
     """Configure the platform and add the Gazpar sensor."""
 
     _LOGGER.debug("Initializing Gazpar platform...")
-    geckodriver_autoinstaller.install()
     try:
         username = config[CONF_USERNAME]
         password = config[CONF_PASSWORD]
